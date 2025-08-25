@@ -1,7 +1,61 @@
 <div class="customer-dashboard">
   <div class="header">
-    <h1>Informações do Cliente</h1>
+    <div class="header-content">
+      <img src="https://www.safra.com.br/lumis-theme/br/com/bancosafra/safranet/theme/safranet/assets/img/logo-safra.svg" alt="Safra" class="safra-logo">
+      <h1>Informações do Cliente</h1>
+    </div>
   </div>
+  
+  <nav class="main-menu">
+    <div class="menu-container">
+      <ul class="menu-list">
+        @for (item of menuItems; track item.id) {
+          <li class="menu-item" [class.has-submenu]="item.subitems">
+            <button class="menu-button" type="button" (click)="$event.preventDefault()">
+              @if (item.icon) {
+                <span class="menu-icon">{{ getIconSymbol(item.icon!) }}</span>
+              }
+              <span class="menu-label">{{ item.label }}</span>
+              @if (item.subitems) {
+                <span class="dropdown-arrow">▼</span>
+              }
+            </button>
+            
+            @if (item.subitems) {
+              <div class="submenu">
+                <ul class="submenu-list">
+                  @for (subitem of item.subitems; track subitem.id) {
+                    <li class="submenu-item" [class.has-subsubmenu]="subitem.subitems">
+                      <button class="submenu-button" type="button" (click)="$event.preventDefault()">
+                        {{ subitem.label }}
+                        @if (subitem.subitems) {
+                          <span class="dropdown-arrow">▶</span>
+                        }
+                      </button>
+                      
+                      @if (subitem.subitems) {
+                        <div class="subsubmenu">
+                          <ul class="subsubmenu-list">
+                            @for (subsubitem of subitem.subitems; track subsubitem.id) {
+                              <li class="subsubmenu-item">
+                                <button class="subsubmenu-button" type="button" (click)="$event.preventDefault()">
+                                  {{ subsubitem.label }}
+                                </button>
+                              </li>
+                            }
+                          </ul>
+                        </div>
+                      }
+                    </li>
+                  }
+                </ul>
+              </div>
+            }
+          </li>
+        }
+      </ul>
+    </div>
+  </nav>
   
   <div class="customer-info">
     <div class="info-card">
@@ -40,4 +94,11 @@
       </div>
     </div>
   </div>
+  
+  <footer class="footer">
+    <div class="footer-content">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/512px-Angular_full_color_logo.svg.png" alt="Angular" class="angular-logo">
+      <span class="footer-text">Made with Angular</span>
+    </div>
+  </footer>
 </div>

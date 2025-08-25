@@ -1,27 +1,231 @@
-// Twilio Paste inspired styles
+// Safra brand colors and Montserrat font
 .customer-dashboard {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  padding: 16px;
-  max-width: 800px;
-  margin: 0 auto;
-  background-color: #f4f4f6;
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
   min-height: 100vh;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
 }
 
 .header {
-  margin-bottom: 24px;
+  background-color: #ffffff;
+  border-bottom: 2px solid #00003c;
+  padding: 16px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 60, 0.1);
+  
+  .header-content {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .safra-logo {
+    height: 32px;
+    width: auto;
+  }
   
   h1 {
-    color: #121c2d;
+    color: #00003c;
     font-size: 24px;
     font-weight: 600;
     margin: 0;
-    border-bottom: 2px solid #0263e0;
-    padding-bottom: 8px;
+    font-family: 'Montserrat', sans-serif;
+  }
+}
+
+// Main navigation menu
+.main-menu {
+  background-color: #ffffff;
+  border-bottom: 1px solid rgba(0, 0, 60, 0.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 60, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 9998;
+  
+  .menu-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    overflow: visible;
+  }
+  
+  .menu-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: visible;
+    
+    // Remove scrollbars completely
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .menu-item {
+    position: relative;
+    flex-shrink: 0;
+    
+    &:hover .submenu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+  }
+  
+  .menu-button {
+    background: none;
+    border: none;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #00003c;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    border-bottom: 3px solid transparent;
+    
+    &:hover {
+      background-color: rgba(0, 0, 60, 0.05);
+      border-bottom-color: #00003c;
+      color: #00003c;
+    }
+    
+    .menu-icon {
+      font-size: 16px;
+      line-height: 1;
+    }
+    
+    .dropdown-arrow {
+      font-size: 10px;
+      margin-left: 4px;
+      transition: transform 0.2s ease;
+    }
+  }
+  
+  .submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 250px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(0, 0, 60, 0.12);
+    border: 1px solid rgba(0, 0, 60, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: all 0.2s ease;
+    z-index: 9999;
+    
+    .submenu-list {
+      list-style: none;
+      margin: 0;
+      padding: 8px 0;
+    }
+    
+    .submenu-item {
+      position: relative;
+      
+      &:hover .subsubmenu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
+      }
+      
+      &:hover > .submenu-button {
+        background-color: rgba(0, 0, 60, 0.05);
+        color: #00003c;
+      }
+    }
+    
+    .submenu-button {
+      background: none;
+      border: none;
+      width: 100%;
+      padding: 12px 20px;
+      text-align: left;
+      color: #4f4f4f;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      
+      .dropdown-arrow {
+        font-size: 10px;
+        color: #4f4f4f;
+      }
+    }
+    
+    .subsubmenu {
+      position: absolute;
+      top: 0;
+      left: 100%;
+      min-width: 220px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 8px 32px rgba(0, 0, 60, 0.12);
+      border: 1px solid rgba(0, 0, 60, 0.1);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(-8px);
+      transition: all 0.2s ease;
+      z-index: 10000;
+      
+      .subsubmenu-list {
+        list-style: none;
+        margin: 0;
+        padding: 8px 0;
+      }
+      
+      .subsubmenu-button {
+        background: none;
+        border: none;
+        width: 100%;
+        padding: 10px 20px;
+        text-align: left;
+        color: #4f4f4f;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 13px;
+        font-weight: 400;
+        cursor: pointer;
+        transition: all 0.15s ease;
+        
+        &:hover {
+          background-color: rgba(0, 0, 60, 0.05);
+          color: #00003c;
+        }
+      }
+    }
   }
 }
 
 .customer-info {
+  flex: 1;
+  padding: 24px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
   display: grid;
   gap: 20px;
   grid-template-columns: 1fr;
@@ -32,15 +236,15 @@
 }
 
 .info-card, .contact-info {
-  background: white;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border: 1px solid #e1e3ea;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 60, 0.08);
+  border: 1px solid rgba(0, 0, 60, 0.1);
 }
 
 .info-item {
-  margin-bottom: 16px;
+  margin-bottom: 20px;
   
   &:last-child {
     margin-bottom: 0;
@@ -50,43 +254,48 @@
     display: block;
     font-weight: 600;
     font-size: 14px;
-    color: #606b85;
-    margin-bottom: 4px;
+    color: #4f4f4f;
+    margin-bottom: 6px;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.8px;
+    font-family: 'Montserrat', sans-serif;
   }
   
   .value {
     font-size: 16px;
-    color: #121c2d;
+    color: #00003c;
     font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.4;
   }
 }
 
 .relationship-level {
   display: inline-block;
-  background: #0263e0;
+  background: linear-gradient(135deg, #00003c, #2d2d6b);
   color: white;
-  padding: 4px 12px;
-  border-radius: 16px;
+  padding: 6px 16px;
+  border-radius: 20px;
   font-size: 14px;
   font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .ai-recommendation {
   grid-column: 1 / -1;
   
   .recommendation-box {
-    background: #f0f6ff;
-    border: 2px solid #0263e0;
-    border-radius: 8px;
-    padding: 16px;
+    background: linear-gradient(135deg, #f8f9ff, #ffffff);
+    border: 2px solid #00003c;
+    border-radius: 12px;
+    padding: 20px;
     margin-top: 8px;
     
     .value {
-      color: #121c2d;
-      line-height: 1.5;
+      color: #00003c;
+      line-height: 1.6;
       font-size: 15px;
+      font-family: 'Montserrat', sans-serif;
     }
   }
 }
@@ -96,17 +305,112 @@
   flex-direction: column;
 }
 
-// Responsive adjustments
-@media (max-width: 767px) {
-  .customer-dashboard {
-    padding: 12px;
+.footer {
+  background-color: #ffffff;
+  border-top: 1px solid rgba(0, 0, 60, 0.1);
+  padding: 16px 20px;
+  margin-top: auto;
+  
+  .footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
   }
   
-  .info-card, .contact-info {
+  .angular-logo {
+    height: 20px;
+    width: 20px;
+  }
+  
+  .footer-text {
+    color: #4f4f4f;
+    font-size: 13px;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 767px) {
+  .header {
+    padding: 12px 16px;
+    
+    .header-content {
+      gap: 12px;
+    }
+    
+    .safra-logo {
+      height: 28px;
+    }
+    
+    h1 {
+      font-size: 20px;
+    }
+  }
+  
+  .main-menu {
+    .menu-container {
+      padding: 0 16px;
+    }
+    
+    .menu-button {
+      padding: 14px 16px;
+      font-size: 13px;
+      
+      .menu-icon {
+        font-size: 14px;
+      }
+    }
+    
+    .submenu {
+      min-width: 200px;
+      
+      .submenu-button {
+        padding: 10px 16px;
+        font-size: 13px;
+      }
+    }
+    
+    .subsubmenu {
+      min-width: 180px;
+      
+      .subsubmenu-button {
+        font-size: 12px;
+      }
+    }
+  }
+  
+  .customer-info {
     padding: 16px;
   }
   
-  .header h1 {
-    font-size: 20px;
+  .info-card, .contact-info {
+    padding: 20px;
   }
+  
+  .footer {
+    padding: 12px 16px;
+    
+    .footer-content {
+      gap: 8px;
+    }
+    
+    .angular-logo {
+      height: 18px;
+      width: 18px;
+    }
+    
+    .footer-text {
+      font-size: 12px;
+    }
+  }
+}
+
+// Global body styling
+:host {
+  display: block;
+  min-height: 100vh;
 }
