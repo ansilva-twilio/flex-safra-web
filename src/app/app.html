@@ -1,0 +1,43 @@
+<div class="customer-dashboard">
+  <div class="header">
+    <h1>Informações do Cliente</h1>
+  </div>
+  
+  <div class="customer-info">
+    <div class="info-card">
+      <div class="info-item">
+        <label>Nome do Cliente:</label>
+        <span class="value">{{ customerInfo.customerName }}</span>
+      </div>
+      
+      <div class="info-item">
+        <label>Número da Conta:</label>
+        <span class="value">{{ customerInfo.accountNumber }}</span>
+      </div>
+      
+      <div class="info-item">
+        <label>Cliente desde:</label>
+        <span class="value">{{ customerInfo.customerSince }}</span>
+      </div>
+      
+      <div class="info-item">
+        <label>Nível de Relacionamento:</label>
+        <span class="value relationship-level">{{ customerInfo.relationshipLevel }}</span>
+      </div>
+    </div>
+    
+    <div class="contact-info">
+      <div class="info-item">
+        <label>Motivo do Contato:</label>
+        <span class="value">{{ customerInfo.contactReason }}</span>
+      </div>
+      
+      <div class="info-item ai-recommendation">
+        <label>Recomendação IA / Plano de Ação:</label>
+        <div class="recommendation-box">
+          <span class="value">{{ customerInfo.aiRecommendation }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

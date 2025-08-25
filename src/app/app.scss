@@ -1,0 +1,112 @@
+// Twilio Paste inspired styles
+.customer-dashboard {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  padding: 16px;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #f4f4f6;
+  min-height: 100vh;
+}
+
+.header {
+  margin-bottom: 24px;
+  
+  h1 {
+    color: #121c2d;
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+    border-bottom: 2px solid #0263e0;
+    padding-bottom: 8px;
+  }
+}
+
+.customer-info {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr;
+  
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.info-card, .contact-info {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e1e3ea;
+}
+
+.info-item {
+  margin-bottom: 16px;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+  
+  label {
+    display: block;
+    font-weight: 600;
+    font-size: 14px;
+    color: #606b85;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .value {
+    font-size: 16px;
+    color: #121c2d;
+    font-weight: 500;
+  }
+}
+
+.relationship-level {
+  display: inline-block;
+  background: #0263e0;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.ai-recommendation {
+  grid-column: 1 / -1;
+  
+  .recommendation-box {
+    background: #f0f6ff;
+    border: 2px solid #0263e0;
+    border-radius: 8px;
+    padding: 16px;
+    margin-top: 8px;
+    
+    .value {
+      color: #121c2d;
+      line-height: 1.5;
+      font-size: 15px;
+    }
+  }
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+}
+
+// Responsive adjustments
+@media (max-width: 767px) {
+  .customer-dashboard {
+    padding: 12px;
+  }
+  
+  .info-card, .contact-info {
+    padding: 16px;
+  }
+  
+  .header h1 {
+    font-size: 20px;
+  }
+}
