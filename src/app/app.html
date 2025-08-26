@@ -2,7 +2,7 @@
   <div class="header">
     <div class="header-content">
       <img src="https://www.safra.com.br/lumis-theme/br/com/bancosafra/safranet/theme/safranet/assets/img/logo-safra.svg" alt="Safra" class="safra-logo">
-      <h1>Informações do Cliente</h1>
+      <h1 style="padding-left: 5px;">Cockpit</h1>
     </div>
   </div>
   
@@ -10,8 +10,11 @@
     <div class="menu-container">
       <ul class="menu-list">
         @for (item of menuItems; track item.id) {
-          <li class="menu-item" [class.has-submenu]="item.subitems">
-            <button class="menu-button" type="button" (click)="$event.preventDefault()">
+          <li class="menu-item" [class.has-submenu]="item.subitems" [attr.data-item-id]="item.id">
+            <button class="menu-button" type="button" 
+                    (click)="$event.preventDefault()"
+                    (mouseenter)="item.subitems && onMenuItemHover($event)"
+                    (mouseleave)="item.subitems && onMenuItemLeave($event)">
               @if (item.icon) {
                 <span class="menu-icon">{{ getIconSymbol(item.icon!) }}</span>
               }
@@ -22,11 +25,16 @@
             </button>
             
             @if (item.subitems) {
-              <div class="submenu">
+              <div class="submenu" 
+                   (mouseenter)="onSubmenuHover($event)"
+                   (mouseleave)="onSubmenuLeave($event)">
                 <ul class="submenu-list">
                   @for (subitem of item.subitems; track subitem.id) {
-                    <li class="submenu-item" [class.has-subsubmenu]="subitem.subitems">
-                      <button class="submenu-button" type="button" (click)="$event.preventDefault()">
+                    <li class="submenu-item" [class.has-subsubmenu]="subitem.subitems" [attr.data-subitem-id]="subitem.id">
+                      <button class="submenu-button" type="button" 
+                              (click)="$event.preventDefault()"
+                              (mouseenter)="subitem.subitems && onSubmenuItemHover($event)"
+                              (mouseleave)="subitem.subitems && onSubmenuItemLeave($event)">
                         {{ subitem.label }}
                         @if (subitem.subitems) {
                           <span class="dropdown-arrow">▶</span>
@@ -34,7 +42,9 @@
                       </button>
                       
                       @if (subitem.subitems) {
-                        <div class="subsubmenu">
+                        <div class="subsubmenu"
+                             (mouseenter)="onSubSubmenuHover($event)"
+                             (mouseleave)="onSubSubmenuLeave($event)">
                           <ul class="subsubmenu-list">
                             @for (subsubitem of subitem.subitems; track subsubitem.id) {
                               <li class="subsubmenu-item">
@@ -76,7 +86,7 @@
       
       <div class="info-item">
         <label>Nível de Relacionamento:</label>
-        <span class="value relationship-level">{{ customerInfo.relationshipLevel }}</span>
+        <span class="value relationship-level" style="color: white;">{{ customerInfo.relationshipLevel }}</span>
       </div>
     </div>
     
